@@ -1,5 +1,5 @@
+# top-level class documentation comment
 class User < ApplicationRecord
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -11,5 +11,4 @@ class User < ApplicationRecord
   def current_record
     records.where(finish_record: nil).first
   end
-
 end

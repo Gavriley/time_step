@@ -1,5 +1,5 @@
+# top-level class documentation comment
 class RecordsController < ApplicationController
-
   def index
     @record = current_user.current_record
     @record = Record.new if @record.nil?
@@ -18,8 +18,7 @@ class RecordsController < ApplicationController
     @record = current_user.records.find(params[:id])
     @record.update(finish_record: Time.now)
     @record = Record.new
-    
+
     render :show
   end
-
 end

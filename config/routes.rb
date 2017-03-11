@@ -5,5 +5,4 @@ Rails.application.routes.draw do
 
   resources :records
   resources :teams
-
 end

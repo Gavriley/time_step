@@ -1,5 +1,4 @@
 class CreateRecords < ActiveRecord::Migration[5.0]
-
   def change
     create_table :records do |t|
       t.belongs_to :user, index: true
@@ -7,5 +6,4 @@ class CreateRecords < ActiveRecord::Migration[5.0]
       t.datetime :finish_record
     end
   end
-
 end
