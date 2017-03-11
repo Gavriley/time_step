@@ -15,3 +15,23 @@
  */
 
 @import 'bootstrap';
+
+#record_form {
+  text-align: center;
+  padding: 50px 0px;
+
+  input[type=submit] {
+    border: 1px solid #000;
+    padding: 20px 50px;
+    font-size: 20px;
+    color: #fff;
+  }
+
+  .start-button {
+    background-color: #7373af;
+  }
+
+  .finish-button {
+    background-color: red;
+  }
+}

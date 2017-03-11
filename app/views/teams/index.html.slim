@@ -1,0 +1,16 @@
+.container
+  h4 = @team.name + '\'s users '
+  table.table.table-striped
+    thead
+      tr 
+        th Fitst name
+        th Last name
+        th E-mail
+        th Working time
+      - @users.each do |user|
+        tr 
+          td = user.first_name
+          td = user.last_name
+          td = user.email
+          td = work_time(user)      
+        

@@ -2,9 +2,22 @@ doctype html
 html
   head
     title
-      | TimeStep
+      | Time Step
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    .text-center
+      h1 Time Step
+      hr
+      - if current_user.present?
+        = "You sign in as #{current_user.last_name} #{current_user.first_name} | " 
+        = link_to 'Log out', destroy_user_session_path, method: :delete 
+      - else
+        | Please 
+        =' link_to 'Sign-In', new_user_session_path 
+        | or 
+        = link_to 'Register', new_user_registration_path  
     = yield
+    
+    #modal.modal.fade 
