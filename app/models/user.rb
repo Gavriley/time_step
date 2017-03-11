@@ -9,6 +9,6 @@ class User < ApplicationRecord
   belongs_to :team
 
   def current_record
-    records.where(finish_record: nil).first
+    records.find_by(finish_record: nil)
   end
 end
