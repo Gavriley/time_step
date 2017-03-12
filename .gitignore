@@ -16,6 +16,10 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+
 # Ignore secret files
 /config/secrets.yml
 /config/database.yml
+
+# Ignore Rubymine IDE
+.idea
