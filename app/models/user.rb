@@ -6,7 +6,7 @@ class User < ApplicationRecord
   enum role: [:user, :manager, :admin]
 
   has_many :records
-  belongs_to :team
+  belongs_to :team, { :optional => true }
 
   def current_record
     records.find_by(finish_record: nil)

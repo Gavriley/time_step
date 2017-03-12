@@ -16,15 +16,26 @@
 
 @import 'bootstrap';
 
+input[type=submit]:focus {
+  outline: none;
+}
+
 #record_form {
   text-align: center;
   padding: 50px 0px;
 
   input[type=submit] {
     border: 1px solid #000;
-    padding: 20px 50px;
+    border-radius: 15px;
+    padding: 20px 0px;
+    width: 280px;
     font-size: 20px;
     color: #fff;
+  }
+
+  input[type=submit]:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50)
   }
 
   .start-button {
@@ -34,4 +45,24 @@
   .finish-button {
     background-color: red;
   }
+}
+
+#error_explanation {
+  border: 1px dashed red;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 0px 5px 7px 15px;
+
+  h2 {
+    font-size: 16px;
+    color: red;
+  }
+
+  li {
+    color: red;
+  }
+}
+
+.field_with_errors {
+  display: inline;
 }
