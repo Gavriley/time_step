@@ -13,10 +13,12 @@ html
         ul.nav.nav-pills.nav-justified
           li.active 
             = link_to 'Home', root_path
-          li
-            = link_to 'Work', records_path
-          li 
-            = link_to 'Team', teams_path    
+          - if can? :read, Record  
+            li
+              = link_to 'Work', records_path
+          - if can? :read, Team    
+            li 
+              = link_to 'Team', teams_path    
     .text-center
       br
       - if signed_in?

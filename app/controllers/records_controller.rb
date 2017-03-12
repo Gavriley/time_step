@@ -1,5 +1,11 @@
 # top-level class documentation comment
 class RecordsController < ApplicationController
+
+  load_and_authorize_resource except: [:home]
+
+  def home
+  end
+
   def index
     @record = current_user.current_record
     @record = Record.new if @record.nil?
