@@ -1,10 +1,9 @@
 # top-level class documentation comment
 class RecordsController < ApplicationController
 
-  load_and_authorize_resource except: [:home]
+  load_and_authorize_resource
 
-  def home
-  end
+  rescue_from ActiveRecord::RecordNotFound, with: -> { redirect_to records_path }
 
   def index
     @record = current_user.current_record
@@ -12,19 +11,21 @@ class RecordsController < ApplicationController
   end
 
   def create
-    redirect_to :index unless current_user.current_record.nil?
+    raise ActiveRecord::RecordNotFound if current_user.current_record.present?
 
     @record = Record.new(start_record: Time.now)
     current_user.records << @record
 
-    render :show
+    render :record
   end
 
   def update
+    raise ActiveRecord::RecordNotFound if @record.finish_record.present?
+
     @record = current_user.records.find(params[:id])
     @record.update(finish_record: Time.now)
     @record = Record.new
 
-    render :show
+    render :record
   end
 end
