@@ -8,7 +8,8 @@ class User < ApplicationRecord
   has_many :records
   belongs_to :team, { :optional => true }
 
-  def active_record?
-    records.find_by(finish_record: nil)
+  def last_open_record
+    records.find_by(finished_at: nil)
   end
+  
 end
