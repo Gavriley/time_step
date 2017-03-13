@@ -3,6 +3,8 @@ class Record < ApplicationRecord
 
   belongs_to :user
 
+  scope :closed, -> { where.not(finished_at: nil) }
+
   validate :open_record, on: :create
   validate :closed_record, on: :update
 

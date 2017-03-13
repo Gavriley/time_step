@@ -1,6 +1,6 @@
 <% if @record.errors.present? %>
-  <% errors = @record.errors.map { |k, v| v }.join(' ') %>
-  $('#errors_block').html('<%= j(errors) %>');
+  <% key, error = @record.errors.first %>
+  $('#errors_block').html('<div id=error_explanation><h2><%= j(error) %></h2></div>');
 <% end %>
 
 $('#record_form').html('<%= j(render 'form') %>');

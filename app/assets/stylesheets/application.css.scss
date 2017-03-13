@@ -20,33 +20,6 @@ input[type=submit]:focus {
   outline: none;
 }
 
-#record_form {
-  text-align: center;
-  padding: 50px 0px;
-
-  input[type=submit] {
-    border: 1px solid #000;
-    border-radius: 15px;
-    padding: 20px 0px;
-    width: 280px;
-    font-size: 20px;
-    color: #fff;
-  }
-
-  input[type=submit]:hover {
-    opacity: 0.8;
-    filter: alpha(opacity=50)
-  }
-
-  .start-button {
-    background-color: #7373af;
-  }
-
-  .finish-button {
-    background-color: red;
-  }
-}
-
 #error_explanation {
   border: 1px dashed red;
   border-radius: 10px;
