@@ -1,7 +1,7 @@
 class Record < ApplicationRecord
   belongs_to :user
 
-  scope :closed, -> { where.not(finished_at: nil) }
+  scope :closed, -> { where.not(finished_at: nil).order(started_at: :desc) }
 
   validate :open_record, on: :create
   validate :closed_record, on: :update
