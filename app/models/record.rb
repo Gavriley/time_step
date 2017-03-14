@@ -1,5 +1,4 @@
 class Record < ApplicationRecord
-
   belongs_to :user
 
   scope :closed, -> { where.not(finished_at: nil) }
@@ -16,5 +15,4 @@ class Record < ApplicationRecord
   def closed_record
     errors.add(:record, 'You have already finished to work') if finished_at_was.present?
   end
-
 end

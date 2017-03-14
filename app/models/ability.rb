@@ -8,7 +8,6 @@ class Ability
     user ||= User.new # guest user (not logged in)
 
     if user.new_record?
-      
     elsif user.user?
       can :read, Record
       can :create, Record

@@ -5,10 +5,9 @@ class User < ApplicationRecord
   enum role: [:user, :manager, :admin]
 
   has_many :records
-  belongs_to :team, { :optional => true }
+  belongs_to :team, optional: true
 
   def last_open_record
     records.find_by(finished_at: nil)
   end
-  
 end

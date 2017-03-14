@@ -1,5 +1,4 @@
 class TeamsController < ApplicationController
-
   load_and_authorize_resource
 
   def index
@@ -8,5 +7,4 @@ class TeamsController < ApplicationController
     @team = current_user.team
     @users = @team.users.includes(:records)
   end
-  
 end
