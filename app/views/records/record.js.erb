@@ -1,6 +1,6 @@
 <% if @record.errors.present? %>
   <% key, error = @record.errors.first %>
-  $('#errors_block').html('<div id=error_explanation><h2><%= j(error) %></h2></div>');
+  $('#errors_block').html('<div class="alert alert-danger" role="alert"><%= j(error) %></div>');
 <% end %>
 
 $('#record_form').html('<%= j(render 'form') %>');
