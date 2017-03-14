@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 
 group :test do
   gem 'capybara'
+  gem 'simplecov', :require => false
   gem 'shoulda-matchers', '~> 3.1'
 end
 

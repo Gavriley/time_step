@@ -14,8 +14,7 @@ describe RecordsController do
     put :update, params: { id: user.records.last.id, record: {}, format: :js }
     expect(response).to redirect_to records_url
     get :index
-    expect(response.body).to match user.records.last.started_at.strftime("%d %B %Y %H:%M:%S").to_s
-    expect(response.body).to match user.records.last.finished_at.strftime("%d %B %Y %H:%M:%S").to_s
+    expect(response.body).to match user.records.last.started_at.strftime('%d %B %Y %H:%M:%S')
+    expect(response.body).to match user.records.last.finished_at.strftime('%d %B %Y %H:%M:%S')
   end
-
 end

@@ -33,5 +33,4 @@ class RecordsController < ApplicationController
   def error_message
     flash[:error] = @record.errors.first[1]
   end
-
 end
