@@ -8,6 +8,7 @@ AllCops:
     - 'spec/*'
     - 'test/**/*'
     - '*'
-
 Documentation:
-  Enabled: false    
+  Enabled: false
+Metrics/LineLength:
+  Max: 120
