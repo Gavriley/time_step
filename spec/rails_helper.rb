@@ -6,7 +6,6 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'capybara/rails'
 require 'rspec/rails'
-require 'faker'
 
 Faker::Config.locale = :en
 
@@ -36,7 +35,7 @@ RSpec.configure do |config|
   config.include Capybara::DSL
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  # config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
