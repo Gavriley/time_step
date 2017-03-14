@@ -1,4 +1,3 @@
-# top-level class documentation comment
 module TeamsHelper
   def work_time(user)
     time = user.records.closed.inject(0) do |sum, rec|

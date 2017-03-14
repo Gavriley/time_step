@@ -6,27 +6,10 @@ html
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    nav.navbar.navbar-default
-      container-fluid
-        = link_to 'Home', root_path, class: 'navbar-brand'
-      .collapse.navbar-collapse
-        ul.nav.navbar-nav
-          - if can? :read, Record  
-            li
-              = link_to 'Work', records_path
-          - if can? :read, Team    
-            li 
-              = link_to 'Team', teams_path
-        ul.nav.navbar-nav.navbar-right
-          - if signed_in?
-            p.navbar-text = "You sign in as #{current_user.last_name} #{current_user.first_name}" 
-            li = link_to 'Log out', destroy_user_session_path, method: :delete 
-          - else
-            li = link_to 'Sign-In', new_user_session_path  
-            li = link_to 'Register', new_user_registration_path  
+  body      
+    = render 'nav-bar'
+    
     .row  
       .col-md-offset-2.col-md-8   
         = yield
     
-    #modal.modal.fade 

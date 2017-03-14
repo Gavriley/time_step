@@ -1,6 +1,4 @@
-# top-level class documentation comment
 class Record < ApplicationRecord
-
   belongs_to :user
 
   scope :closed, -> { where.not(finished_at: nil) }
@@ -11,11 +9,12 @@ class Record < ApplicationRecord
   private
 
   def open_record
-    errors.add(:record, 'You have already started to work') if user.records.exists?(finished_at: nil)
+    mes = 'You have already started to work'
+    errors.add(:record, mes) if user.records.exists?(finished_at: nil)
   end
 
   def closed_record
-    errors.add(:record, 'You have already finished to work') if finished_at_was.present?
+    mes = 'You have already finished to work'
+    errors.add(:record, mes) if finished_at_was.present?
   end
-
 end

@@ -1,10 +1,13 @@
 AllCops:
   Exclude:
-    - db/schema.rb   
-    - 'bin/**/*' 
+    - db/schema.rb
+    - 'bin/**/*'
     - 'db/**/*'
     - 'config/**/*'
     - 'script/**/*'
     - 'spec/*'
     - 'test/**/*'
     - '*'
+
+Documentation:
+  Enabled: false    
