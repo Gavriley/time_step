@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :test do
+  gem 'capybara'
   gem 'shoulda-matchers', '~> 3.1'
 end
 

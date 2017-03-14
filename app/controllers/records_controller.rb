@@ -28,5 +28,4 @@ class RecordsController < ApplicationController
   def set_record_list
     @records = current_user.records.closed
   end
-
 end
