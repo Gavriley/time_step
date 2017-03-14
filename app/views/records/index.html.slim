@@ -3,5 +3,11 @@
 #record_form  
   = render 'form'
 
-#record_list  
-  = render 'record_list'
+br
+table.table.table-bordered
+  thead
+    tr
+      th Started working
+      th Finished working
+  tbody#record_list    
+    = render @records  

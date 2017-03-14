@@ -4,4 +4,7 @@
 <% end %>
 
 $('#record_form').html('<%= j(render 'form') %>');
-$('#record_list').html('<%= j(render 'record_list') %>');
+
+<% if @last_record %>
+  $('#record_list').prepend('<%= j(render @last_record) %>');
+<% end %>
