@@ -10,16 +10,28 @@ class RecordsController < ApplicationController
 
   def create
     @record = current_user.records.build(started_at: Time.now)
-    current_user.records << @record if @record.save
 
-    render :record
+    if @record.save
+      current_user.records << @record
+    else
+      error_message
+    end
+
+    redirect_to records_url
   end
 
   def update
-    @last_record = @record = current_user.records.find(params[:id])
-    @record = Record.new if @record.update(finished_at: Time.now)
+    @record = current_user.records.find(params[:id])
 
-    render :record
+    error_message unless @record.update(finished_at: Time.now)
+
+    redirect_to records_url
+  end
+
+  private
+
+  def error_message
+    flash[:error] = @record.errors.first[1]
   end
 
 end

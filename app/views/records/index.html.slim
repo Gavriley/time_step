@@ -1,4 +1,5 @@
-#errors_block
+- if flash[:error]
+  .alert.alert-danger role='alert' = flash[:error]
 
 #record_form  
   = render 'form'
