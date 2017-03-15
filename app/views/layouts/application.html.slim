@@ -10,6 +10,7 @@ html
     = render 'nav-bar'
     
     .row  
-      .col-md-offset-2.col-md-8   
+      .col-md-offset-2.col-md-8
+        = flash_message   
         = yield
     
