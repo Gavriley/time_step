@@ -31,4 +31,24 @@ describe RecordsController do
       expect(response.body).to match finished_record.finished_at.strftime('%d %B %Y %H:%M:%S')
     end
   end
+
+  context 'raise error' do
+
+    it 'twice create record' do
+      post :create, params: { record: {}, format: :js }
+      post :create, params: { record: {}, format: :js }
+      expect(response).to redirect_to records_url
+      expect(flash[:error]).to match 'You have already started to work'
+    end
+
+    it 'twice update record' do
+      started_record = user.records.create(started_at: Time.now)
+      put :update, params: { id: started_record.id, record: {}, format: :js }
+      put :update, params: { id: started_record.id, record: {}, format: :js }
+      expect(response).to redirect_to records_url
+      expect(flash[:error]).to match 'You have already finished to work'
+    end
+
+  end
+
 end
