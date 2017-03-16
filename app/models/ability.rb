@@ -5,7 +5,7 @@ class Ability
     @user = user || User.new
 
     if @user.new_record?
-
+      guest_ability
     elsif @user.user?
       user_ability
     elsif @user.manager?
@@ -17,21 +17,26 @@ class Ability
 
   private
 
-  def user_ability
-    can :read, Record
-    can :create, Record
-    can :update, Record, user: @user
+  def admin_ability
+    can :manage, :all
   end
 
   def manager_ability
-    can :read, Record
-    can :create, Record
-    can :update, Record, user: @user
+    user_ability
 
     can :read, Team
   end
 
-  def admin_ability
-    can :manage, :all
+  def user_ability
+    guest_ability
+
+    can :read, Record
+    can :create, Record
+    can :update, Record, user: @user
   end
+
+  def guest_ability
+    can :read, HomeController
+  end
+
 end
