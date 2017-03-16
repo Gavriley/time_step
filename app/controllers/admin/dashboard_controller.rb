@@ -2,6 +2,8 @@ class Admin::DashboardController < ApplicationController
 
   layout 'admin'
 
-  def index; end
+  def index
+    @page_title = 'Dashboard'
+  end
 
 end
