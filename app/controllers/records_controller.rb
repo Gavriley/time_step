@@ -2,8 +2,6 @@ class RecordsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @page_title = 'Working Page'
-
     @record = current_user.last_open_record
     @record = Record.new if @record.nil?
     @records = current_user.records.closed

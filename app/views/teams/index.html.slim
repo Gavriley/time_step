@@ -1,3 +1,6 @@
+- content_for :page_title do
+  = "#{@team.name}'s Page"
+
 .container
   h4 = @team.name + '\'s users '
   table.table.table-striped
